@@ -1,18 +1,28 @@
-## Development server
+## Basics
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Interpolation `{{}}` for render some properties on the page;
+- Property binding `[]` for setting values for properties of html-tags;
+- Event binding `<button (click)="function()">My Button</button>` listens to events and responds with defined function;
+- `*ngFor` & `*ngIf`
 
-## Code scaffolding
+## Receive data from parent component
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Child imports `Input` from `@angular/core`;
+- Also child: `@Input() object!: Class;`
+- In parent HTML make `<childTag [property]="data"></childTag>` <br/>
+  E.g. : `<app-product-alerts [product]="product"</app-product-alerts>`
+  
+## Pass data to parent component
 
-## Running unit tests
+- Child imports `Output` and `EventEmitter` from `@angular/core`;
+- Also child: `@Output() notify = new EventEmmiter();`
+- Child: `(click) = "notify.emit()"`;
+- Parent shall contain function for response;
+- Parent: `<child (notify)="function()">`;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
 
 ## Hints
 
