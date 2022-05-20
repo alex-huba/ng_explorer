@@ -20,6 +20,19 @@
 - Parent shall contain function for response;
 - Parent: `<child (notify)="function()">`;
 
+## Routing
+
+- In the `app.module.ts` add: <br/>
+  `RouterModule.forRoot( [ {path: 'products/:productId', component: ProductDetailsComponent } ] )`
+- In the `product-list-component` change `<a>`: <br/>
+  `<a [routerLink] = "['/products', product.id]">` 
+- Import `ActivatedRoute` from `@angular/router` 
+- `constructor(private route: ActivatedRoute) {}`
+- in the `ngOnInit()` extract `productId` from the route params <br/>
+  `const routeParams = this.route.snapshot.paramMap;` <br/>
+  `const productIdFromRoute = Number(routeParams.get('productId'))`
+  
+
 
 
 
